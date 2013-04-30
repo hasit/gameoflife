@@ -2,7 +2,13 @@ gameoflife
 ==========
 
 ## Description ##
-A simulation of Conway's Game of Life in C++ with a Glider (spaceship) example
+A simulation of Conway's Game of Life in C++ with a Glider (spaceship) example.
+
+## TO DO ##
+Not in order of importance
+- [ ] Get grid size and initial pattern from user (command-line/run-time)
+- [ ] Make it continuous
+- [ ] Support different rule sets
 
 ## How to run ##
 ```
