@@ -9,6 +9,7 @@ Not in order of importance
 - [ ] Get grid size and initial pattern from user (command-line/run-time)
 - [ ] Make it continuous
 - [ ] Support different rule sets
+- [ ] Add graphics
 
 ## How to run ##
 ```
