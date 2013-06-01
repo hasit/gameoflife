@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Game Of Life by hasit</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Game Of Life</h1>
+        <h2>A simulation of Conway's Game of Life in C++ with a Glider (spaceship) example</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/hasit/gameoflife/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/hasit/gameoflife/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/hasit/gameoflife" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="gameoflife" class="anchor" href="#gameoflife"><span class="octicon octicon-link"></span></a>gameoflife</h1>
+
+<h2>
+<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>Description</h2>
+
+<p>A simulation of Conway's Game of Life in C++ with a Glider (spaceship) example.</p>
+
+<h2>
+<a name="to-do" class="anchor" href="#to-do"><span class="octicon octicon-link"></span></a>TO DO</h2>
+
+<p>Not in order of importance</p>
+
+<ul>
+<li>[ ] Get grid size and initial pattern from user (command-line/run-time)</li>
+<li>[ ] Make it continuous</li>
+<li>[ ] Support different rule sets</li>
+<li>[ ] Add graphics</li>
+</ul><h2>
+<a name="how-to-run" class="anchor" href="#how-to-run"><span class="octicon octicon-link"></span></a>How to run</h2>
+
+<pre><code>$ git clone https://github.com/hasit/gameoflife.git
+</code></pre>
+
+<pre><code>$ cd ~/gameoflife/
+</code></pre>
+
+<pre><code>$ g++ gameoflife.cpp -o gol
+</code></pre>
+
+<pre><code>$ ./gol
+</code></pre>
+
+<h2>
+<a name="rules" class="anchor" href="#rules"><span class="octicon octicon-link"></span></a>Rules</h2>
+
+<p>At each step in time, the following transitions occur:</p>
+
+<ol>
+<li>Any live cell with fewer than two live neighbours dies, as if caused by under-population.</li>
+<li>Any live cell with two or three live neighbours lives on to the next generation.</li>
+<li>Any live cell with more than three live neighbours dies, as if by overcrowding.</li>
+<li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
+</ol><h2>
+<a name="given-example-of-spaceship---glider" class="anchor" href="#given-example-of-spaceship---glider"><span class="octicon octicon-link"></span></a>Given example of Spaceship - Glider</h2>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/f/f2/Game_of_life_animated_glider.gif"></p>
+
+<h2>
+<a name="other-examples-of-patterns" class="anchor" href="#other-examples-of-patterns"><span class="octicon octicon-link"></span></a>Other examples of patterns</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns">Wikipedia reference</a></p>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
