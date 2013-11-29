@@ -7,13 +7,13 @@
 
 using namespace std;
 
-class gof
+class gol
 {
 private:
-  char grid[10][10];
-  char temp[10][10];
+  char grid[20][20];
+  char temp[20][20];
 public:
-  gof();
+  gol();
   void print();
   void nextgen();
   int neighbours(int, int);
@@ -22,11 +22,11 @@ public:
   void copytogrid();
 };
 
-gof::gof()
+gol::gol()
 {
-  for(int i=0;i<10;i++)
+  for(int i=0;i<20;i++)
     {
-      for(int j=0;j<10;j++)
+      for(int j=0;j<20;j++)
 	{
 	  grid[i][j]=DEAD;
 	  temp[i][j]=DEAD;
@@ -34,11 +34,11 @@ gof::gof()
     }
 }
 
-void gof::print()
+void gol::print()
 {
-  for(int i=0;i<10;i++)
+  for(int i=0;i<20;i++)
     {
-      for(int j=0;j<10;j++)
+      for(int j=0;j<20;j++)
 	{
 	  cout<<grid[i][j]<<" ";
 	}
@@ -46,11 +46,11 @@ void gof::print()
     }
 }
 
-void gof::nextgen()
+void gol::nextgen()
 {
-  for(int i=0;i<10;i++)
+  for(int i=0;i<20;i++)
     {
-      for(int j=0;j<10;j++)
+      for(int j=0;j<20;j++)
 	{
 	  if(grid[i][j]==LIVE)
 	    {
@@ -83,18 +83,18 @@ void gof::nextgen()
   copytogrid();
 }
 
-void gof::copytogrid()
+void gol::copytogrid()
 {
-  for(int i=0;i<10;i++)
+  for(int i=0;i<20;i++)
     {
-      for(int j=0;j<10;j++)
+      for(int j=0;j<20;j++)
 	{
 	  grid[i][j]=temp[i][j];
 	}
     }
 }
 
-int gof::neighbours(int x, int y)
+int gol::neighbours(int x, int y)
 {
   int count=0;
   
@@ -130,11 +130,11 @@ int gof::neighbours(int x, int y)
     {
       count+=1;
     }
-  
+
   return(count);
 }
 
- void gof::setcell(int x, int y, int f)
+ void gol::setcell(int x, int y, int f)
 {
   if(f==1)
     {
@@ -146,25 +146,95 @@ int gof::neighbours(int x, int y)
     }
 }
 
-void gof::initpattern()
+void gol::initpattern()
 {
-  /*glider*/
+  //Glider
+  /*
   grid[0][1]=LIVE;
   grid[1][2]=LIVE;
   grid[2][0]=LIVE;
   grid[2][1]=LIVE;
   grid[2][2]=LIVE;
+  */
+
+  //Pulsar (period 3)
+  grid[2][4]=LIVE;
+  grid[2][5]=LIVE;
+  grid[2][6]=LIVE;
+  grid[2][10]=LIVE;
+  grid[2][11]=LIVE;
+  grid[2][12]=LIVE;
+
+  grid[4][2]=LIVE;
+  grid[4][7]=LIVE;
+  grid[4][9]=LIVE;
+  grid[4][14]=LIVE;
+  
+  grid[5][2]=LIVE;
+  grid[5][7]=LIVE;
+  grid[5][9]=LIVE;
+  grid[5][14]=LIVE;
+  
+  grid[6][2]=LIVE;
+  grid[6][7]=LIVE;
+  grid[6][9]=LIVE;
+  grid[6][14]=LIVE;
+  
+  grid[7][4]=LIVE;
+  grid[7][5]=LIVE;
+  grid[7][6]=LIVE;
+  grid[7][10]=LIVE;
+  grid[7][11]=LIVE;
+  grid[7][12]=LIVE;
+
+  grid[9][4]=LIVE;
+  grid[9][5]=LIVE;
+  grid[9][6]=LIVE;
+  grid[9][10]=LIVE;
+  grid[9][11]=LIVE;
+  grid[9][12]=LIVE;
+
+  grid[10][2]=LIVE;
+  grid[10][7]=LIVE;
+  grid[10][9]=LIVE;
+  grid[10][14]=LIVE;
+  
+  grid[11][2]=LIVE;
+  grid[11][7]=LIVE;
+  grid[11][9]=LIVE;
+  grid[11][14]=LIVE;
+  
+  grid[12][2]=LIVE;
+  grid[12][7]=LIVE;
+  grid[12][9]=LIVE;
+  grid[12][14]=LIVE;
+
+  grid[14][4]=LIVE;
+  grid[14][5]=LIVE;
+  grid[14][6]=LIVE;
+  grid[14][10]=LIVE;
+  grid[14][11]=LIVE;
+  grid[14][12]=LIVE;
 }
 
 int main()
 {
-  gof g;
+  gol g;
+  
   g.initpattern();
+  
   while(1)
     {
       g.print();
       g.nextgen();      
-      cout<<"\r\x1b[A\x1b[A\x1b[A\x1b[A\x1b[A\x1b[A\x1b[A\x1b[A\x1b[A\x1b[A"<<flush;
+      cout<<"\r\x1b[20A"<<flush;
+      // \r - reset the poition to the beginning of the next line
+      // \x1b - ESC
+      // [numberA - move cursor up number lines
+      // [numberB - move cursor down number lines
+      // [numberC - move cursor right number chars
+      // [numberD - move cursor left number chars
+      // H - upper left corner
       sleep(1);
     }
 
